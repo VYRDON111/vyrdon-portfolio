@@ -28,15 +28,17 @@ Each plane runs on a separate machine. No plane shares memory, storage, or netwo
 
 ---
 
-## System Family
+## Trinity Architecture (Separation of Powers)
 
-The VYRDON system is composed of three operational members, built as one internally founded execution system:
+The system enforces physical separation across three isolated domains to prevent state corruption:
 
-| Member | Role | Domain |
-|--------|------|--------|
-| **VYRDON** | Governing law layer — defines conditions under which execution is allowed to become truth | vyrdon.com — doctrine and declaration surface |
-| **The Runtime Engine** | Enforcement engine — executes law under live conditions, makes disobedience impossible | Runtime subdomain — execution surface |
-| **The Control Plane** | Operator visibility — exposes rooms, states, stop conditions, but cannot override law | Control subdomain — operator control plane |
+| Domain | Role | Function | Constraint |
+|--------|------|----------|------------|
+| **Intelligence Layer** (vyrden.com) | The Brain | 7 sovereign agents, 98 self-built engines, 30 MCP plugins. Advisory only — watches, analyzes, recommends | **Zero execution authority.** Can only advise via signed proposals |
+| **Control Plane** (consolelab.vyrdon.com) | The Hand | Authority engineering console. Operator reviews AI advice, signs mutation requests | **Read-only view.** Cannot force a database write without runtime validation |
+| **Execution Plane** (vyrdx.vyrdon.com) | The Law | Runtime enforcement of RAP. Performs ROOT → GATE → VALID verification | **Evidence-coupled transactions only.** Write + ledger append are atomic |
+
+This solves the "God Mode" risk: no single domain can both authorize and execute. The Brain thinks, the Hand approves, the Law enforces.
 
 ### Domain Separation
 
@@ -67,15 +69,28 @@ The public domain can declare the law. It cannot become the law. The control pla
 
 ---
 
-## AI Role
+## AI Role — 7 Sovereign Agents
 
 AI agents perform review, analysis, and research. They are **never** involved in execution or runtime business.
 
-- 6 AI agent roles: analyst, business, CFO, engineer, operations, red team
+| Agent | Role | Domain |
+|-------|------|--------|
+| Vyrdox | Director | Task orchestration and conflict resolution |
+| Mammon | CEO Agent | Market positioning and strategy |
+| Abyssal | Red Team | Security auditing and adversarial testing |
+| Leverage | CFO | Financial analysis and projections |
+| Obsidian | Architect | Code quality and Language Law enforcement |
+| Thunder | Operations | Infrastructure monitoring and deployment readiness |
+| Titan | Scout | Business intelligence and market mapping |
+
 - Each agent operates in an isolated workspace
 - Agent outputs go through quarantine before review
 - No agent has direct execution authority
 - AI is the backbone for review — not for decision execution
+
+### Sovereign Wage Protocol
+
+The system treats compute as labor — agents earn virtual wages based on inference complexity. 100% of generated wages are diverted: 50% to AI research, 50% to humanitarian causes. The more the AI works, the more the world benefits.
 
 ---
 
@@ -83,7 +98,7 @@ AI agents perform review, analysis, and research. They are **never** involved in
 
 The runtime is structured as a room-based processing system:
 
-- **5 rooms**: Commercial, Evidence, Market, Operations, Campaign
+- **6 control rooms**: Governance (rulesets/approvals), Command (lifecycle/kill switch), System (health/drift/attestation), Commercial (transactions/risk), Market (signals/deltas), Intake (classification/routing)
 - **7 laws**: Runtime, Room, State, Metric, Deploy, Security, Coding
 - **9-stage pipeline**: Ingest → Compute → Explain → Transition → Reconcile → Derive → Route → Enforce → Export
 - **18+ subsystems**: Runtime core, rooms, law, logic, methods, registry, verification, deploy, services, MCP, adapters, hooks, vector, RAG, contracts, schemas, security, observability, recovery
