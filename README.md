@@ -1,106 +1,239 @@
-# VYRDON Portfolio
+# VYRDON
 
-This repository defines the VYRDON organizational portfolio.
-
-It exists to make the full system — methodology, mechanism, proof, cases, technology, registry, and review — visible and navigable from one location.
-
-RootPass asks not whether a transaction was said to be verified, but whether the verification itself can pass.
+Validation-Gated Execution System
 
 ---
 
-## What VYRDON Builds
+## 1. Definition
 
-VYRDON builds proof-enforced transaction infrastructure.
+VYRDON is a constraint-driven execution system that separates:
 
-The system evaluates whether the required root chain exists, whether contradictions are present, and whether PASS is legally and logically allowed under the model.
+Execution → what runs  
+Acceptance → what is considered valid  
+
+An operation may execute, but it is only accepted if it satisfies deterministic validation conditions.
+
+If any condition fails:
+
+ACCEPTANCE = FALSE
+
+No partial acceptance exists.  
+Execution without validation is treated as non-valid.
+
+---
+
+## 2. Core Principle
+
+Execution is not truth.
+
+Truth is produced only through validation convergence.
+
+---
+
+## 3. System Architecture (Constraint Graph)
+
+VYRDON is not a traditional layered system.  
+It operates as a validation-anchored execution graph.
 
 ```
-TRUE ROOT  = PASS
-FALSE ROOT = NO_PASS
-MISSING ROOT = HOLD
-```
-
-No root, no pass.
-
----
-
-## System Status
-
-Operating and under active structured development.
-
-These repositories document and harden the public methodology, mechanism, proof surfaces, case applications, and review paths around an already-running system.
-
-They do not imply that the operating system begins here.
-They expose and organize its logic here.
-
----
-
-## Repository Map
-
-| Repository | Layer | What it makes visible |
-|---|---|---|
-| [vyrdon-methodology](https://github.com/VYRDON111/vyrdon-methodology) | Doctrine | Decision model, four-pillar law, contradiction handling |
-| [vyrdon-rootpass-proof](https://github.com/VYRDON111/vyrdon-rootpass-proof) | Proof | Formal verification, ZK proofs, smart contracts |
-| [vyrdon-mechanism](https://github.com/VYRDON111/vyrdon-mechanism) | Enforcement | Escrow, timelock, circuit breaker, dispute paths |
-| **vyrdon-portfolio** | **Front door** | **System overview, repo map, commercial context** |
-| [vyrdon-cases](https://github.com/VYRDON111/vyrdon-cases) | Evidence | Market-specific case studies, patterns, failure analysis |
-| [vyrdon-technology](https://github.com/VYRDON111/vyrdon-technology) | Architecture | Service map, API surfaces, evidence pipeline |
-| [vyrdon-registry](https://github.com/VYRDON111/vyrdon-registry) | Taxonomy | Decision codes, claim types, schemas, catalogs |
-| [vyrdon-open-review](https://github.com/VYRDON111/vyrdon-open-review) | Review | Public audit, challenge framework, submissions |
-
----
-
-## What VYRDON Does Not Claim
-
-VYRDON does not claim to be a certifier, badge issuer, or trust authority.
-
-VYRDON publishes methodology, mechanism, proof artifacts, case applications, test records, and failure records for transaction-state control.
-
-The system is designed to be inspected, challenged, and improved.
-
----
-
-## Markets
-
-VYRDON's methodology applies to any market where transaction verification must be proved, not assumed:
-
-- Banking and wire transfers
-- Payment service providers
-- Exchanges and credit systems
-- Marketplaces and escrow
-- Treasury and settlement
-- Remittance
-
-See [applications/](applications/) for market-specific overviews.
-
----
-
-## The Proof Stack
-
-```
-┌──────────────────────────┐
-│      METHODOLOGY          │  How decisions are made
-├──────────────────────────┤
-│      FORMAL PROOF         │  That the logic is correct
-├──────────────────────────┤
-│      ZK PROOF             │  That decisions are verifiable
-├──────────────────────────┤
-│      ENFORCEMENT          │  That decisions have consequences
-├──────────────────────────┤
-│      CASES                │  That the system works on real data
-├──────────────────────────┤
-│      OPEN REVIEW          │  That anyone can challenge
-└──────────────────────────┘
+[ AUTHORITY ]
+       ↓
+[ VALIDATION GATE ]
+       ↓
+[ EXECUTION ]
+       ↓
+[ EVIDENCE ]
+       ↓
+[ STATE COMMIT ]
+       ↓
+[ VERIFICATION ]
+       ↓
+[ ACCEPTANCE ]
 ```
 
 ---
 
-## License
+## 4. Node Properties
 
-Apache 2.0 — see [LICENSE](LICENSE)
+Each node:
+
+- cannot self-validate  
+- cannot override validation  
+- cannot produce acceptance independently  
+
+Acceptance is a **system-level result**, not a node-level decision.
 
 ---
 
-## Trademark
+## 5. Validation Model (Deterministic Constraint Engine)
 
-VYRDON™ is a trademark of Thaer Bataineh. All rights reserved.
+Validation is enforced as a logical constraint:
+
+```
+ACCEPT = ∧ (Authority ∧ Executor ∧ Evidence ∧ State ∧ Integrity)
+```
+
+Failure condition:
+
+```
+¬(ANY CONDITION) → ACCEPT = FALSE
+```
+
+---
+
+## 6. Validation Collapse
+
+Acceptance occurs only when all validation dimensions converge into a consistent truth state.
+
+If convergence fails:
+
+```
+SYSTEM OUTPUT = NULL
+```
+
+Execution is ignored.
+
+---
+
+## 7. Execution Physics
+
+Execution is treated as an intermediate state.
+
+```
+Intent → Constraint Mapping → Execution → Evidence → State → Validation → ACCEPT / NULL
+```
+
+---
+
+## 8. Time Behavior
+
+VYRDON enforces termination:
+
+Every operation must resolve into:
+
+- ACCEPT  
+- NULL (non-valid)
+
+Rejected patterns:
+
+- infinite retry loops  
+- unresolved states  
+- eventual consistency acceptance  
+
+---
+
+## 9. Language Law (Multi-Layer System)
+
+VYRDON enforces strict separation between language roles.
+
+| Layer      | Language         | Role |
+|------------|-----------------|------|
+| Surface    | LEET / symbolic | intent locking |
+| Canonical  | structured map  | normalization |
+| Build      | Python          | logic construction |
+| Verify     | Rust / Python   | validation |
+| Runtime    | Rust / Go / Node| execution |
+
+---
+
+## 10. Hard Rule
+
+```
+R00T.F4L53 → P455.F4L53
+```
+
+If root authority is invalid, acceptance is impossible.
+
+---
+
+## 11. Enforcement Model
+
+Validation is applied:
+
+- at runtime  
+- before acceptance  
+- after execution  
+- without external interpretation  
+
+Ignored:
+
+- UI signals  
+- admin overrides  
+- assumed trust  
+
+---
+
+## 12. Evidence and Ledger
+
+Each operation generates:
+
+- execution context  
+- validation results  
+- timestamp  
+- integrity hash  
+
+Stored as:
+
+- append-only records  
+- verifiable audit trail  
+- replayable sequence  
+
+---
+
+## 13. System Layers
+
+| Component   | Role |
+|------------|------|
+| VYRDON     | validation logic |
+| VYRDX      | runtime execution |
+| Consolab   | evidence + certification |
+| Vyrden     | analysis |
+| VXStation  | monitoring |
+
+---
+
+## 14. Use Cases
+
+- financial systems  
+- escrow and settlement  
+- API validation layers  
+- CI/CD enforcement  
+- audit-critical systems  
+
+---
+
+## 15. Boundary Definition
+
+VYRDON does not replace execution systems.
+
+It defines:
+
+what is allowed to be accepted as true
+
+---
+
+## 16. Status
+
+Active development.  
+Constraint model defined.  
+Runtime under construction.
+
+---
+
+## 17. Repository
+
+https://github.com/teee79A/vyrdon
+
+---
+
+## 18. License
+
+Apache License 2.0  
+Commercial licensing available separately.
+
+---
+
+## 19. Author
+
+Thaer Bataineh  
+System builder focused on validation-driven execution and constraint-based runtimes.
