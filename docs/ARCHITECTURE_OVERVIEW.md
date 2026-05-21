@@ -28,6 +28,45 @@ Each plane runs on a separate machine. No plane shares memory, storage, or netwo
 
 ---
 
+## System Family
+
+The VYRDON system is composed of three operational members, built as one internally founded execution system:
+
+| Member | Role | Domain |
+|--------|------|--------|
+| **VYRDON** | Governing law layer — defines conditions under which execution is allowed to become truth | vyrdon.com — doctrine and declaration surface |
+| **The Runtime Engine** | Enforcement engine — executes law under live conditions, makes disobedience impossible | Runtime subdomain — execution surface |
+| **The Control Plane** | Operator visibility — exposes rooms, states, stop conditions, but cannot override law | Control subdomain — operator control plane |
+
+### Domain Separation
+
+The separation of domains is part of the mechanism, not presentation:
+
+- **Public domain** = doctrine and declaration surface
+- **Runtime domain** = execution and enforcement surface
+- **Control domain** = operator visibility and control plane
+
+This separation enforces three hard truths:
+- Representation ≠ truth
+- Interface ≠ authority
+- Public narrative ≠ executable root
+
+The public domain can declare the law. It cannot become the law. The control plane can expose and submit. It cannot manufacture finality. The runtime can execute. It still cannot pass unless root and proof allow it.
+
+---
+
+## Technology Stack
+
+| Layer | Language | Purpose |
+|-------|----------|---------|
+| 1 | TypeScript / JavaScript | Runtime logic, interface logic, enforcement engine |
+| 2 | SQL / Postgres | Persisted truth, state evaluation, evidence ledger |
+| 3 | HTML | Surfaced control and doctrine layers |
+| 4 | CSS | Control plane styling and presentation |
+| 5 | Shell / infrastructure scripting | Deployment, hardening, system operations |
+
+---
+
 ## AI Role
 
 AI agents perform review, analysis, and research. They are **never** involved in execution or runtime business.
