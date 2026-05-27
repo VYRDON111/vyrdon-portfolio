@@ -50,6 +50,7 @@ Honest labeling. No overclaims.
 | Decision model | **REVIEW-READY** | PASS/HOLD/NO_PASS logic documented. Consistent with TLA+ specification. |
 | Evidence sufficiency model | **REFERENCE** | Described conceptually. No formal definition of what constitutes "sufficient" evidence for each root type. |
 | Pattern library | **REFERENCE** | Contains pattern descriptions. No populated examples with real data. |
+| Root Language guide | **REVIEW-READY** | 12-term vocabulary + 9-section case design pattern + synthesis rule (`FinalExecutionPass = MachineGreen × HumanRedSeal × ProofComplete × ArchiveFinal × CustodySeal`) + forbidden-phrasing list. Defined in `docs/ROOT_LANGUAGE.md`. |
 
 ### vyrdon-mechanism
 
@@ -61,6 +62,7 @@ Honest labeling. No overclaims.
 | Escrow mechanism | **REFERENCE** | Design documented. Solidity reference implementation exists in vyrdon-rootpass-proof but is not production-ready. |
 | Release/hold/reject flows | **REFERENCE** | Logic described. Not implemented as testable service. |
 | Escalation model | **REFERENCE** | Escalation paths described. No working implementation. |
+| Missing safeguards catalog | **REVIEW-READY** | Inventory of safeguards from CASE-005 / CASE-006 / CASE-007 / CASE-008 / CASE-009 / CASE-010, mapped to enforcement primitives. Defined in `mechanism/MISSING_SAFEGUARDS.md`. Eight classes of safeguard; several primitives marked PLANNED. |
 
 ### vyrdon-technology
 
@@ -72,15 +74,24 @@ Honest labeling. No overclaims.
 | Operational kernel | **REFERENCE** | Memory engine, workbench, daily boot sequence described. Not implemented. |
 | Evidence pipeline | **PLANNED** | Described in architecture docs. No working pipeline. |
 | Engine isolation | **PLANNED** | Requirement documented (separate PID, health endpoint, internal queue). Not implemented. |
+| Case evidence map | **REVIEW-READY** | Maps each populated case to schemas / events / endpoints / custody sources. Defined in `registry/case-evidence-map.md`. Identifies 8 new schema kinds (PLANNED) implied by CASE-007 through CASE-010. |
 
 ### vyrdon-cases
 
 | Artifact | Level | Detail |
 |----------|-------|--------|
-| Case template | **REVIEW-READY** | Template structure defined with all required fields (claim, root, evidence, contradiction, decision, enforcement, relevance, redaction). |
-| CASE-001 (PASS) | **REVIEW-READY** | Fully populated marketplace escrow case. Anonymized. All fields complete. |
-| CASE-002 (HOLD) | **REVIEW-READY** | Fully populated cross-border remittance case. Anonymized. All fields complete. |
-| CASE-003 (NO_PASS) | **REVIEW-READY** | Fully populated exchange withdrawal case with ledger contradiction. Anonymized. All fields complete. |
+| Case template (transaction-decision form) | **REVIEW-READY** | Template structure defined with all required fields (claim, root, evidence, contradiction, decision, enforcement, relevance, redaction). |
+| Root Language case design pattern (9 sections) | **REVIEW-READY** | Surface signal / Root failure / Missing safeguard / VYRDON Root map / Decision / Output packet / System boundary / Audit note. Defined in `vyrdon-methodology/docs/ROOT_LANGUAGE.md`. |
+| CASE-001 (PASS) | **REVIEW-READY** | Marketplace escrow. Transaction-decision form. Anonymized. |
+| CASE-002 (HOLD) | **REVIEW-READY** | Cross-border PSP remittance. Transaction-decision form. Anonymized. |
+| CASE-003 (NO_PASS) | **REVIEW-READY** | Digital exchange withdrawal with ledger contradiction. Transaction-decision form. Anonymized. |
+| CASE-004 (PASS) | **REVIEW-READY** | Corporate-treasury cross-border wire. 9-section Root Language structure + transaction-decision form. Output: Wire Finality Packet. Anonymized. |
+| CASE-005 (NO_PASS) | **REVIEW-READY** | Merchant payout / ACH R03 contradiction. 9-section Root Language structure + transaction-decision form. Output: Payout Failure Reconciliation Packet. Anonymized. |
+| CASE-006 (NO_PASS) | **REVIEW-READY** | Card-network refund dispute with contradicted evidence. 9-section Root Language structure + transaction-decision form. Output: Contradicted Evidence Dispute Packet. Anonymized. |
+| CASE-007 (HOLD) | **REVIEW-READY** | "Nothing happened" legal failure (proving a negative). 9-section Root Language structure. Output: Negative Claim Proof Packet. Generic doctrine form; no specific real dispute referenced. |
+| CASE-008 (NO_PASS) | **REVIEW-READY** | Zeus-class banking trojan (False Root via authority/possession collapse). 9-section Root Language structure. Output: Transfer Protection Review Packet. Generic doctrine form; no specific real bank, victim, or trojan instance referenced. |
+| CASE-009 (HOLD) | **REVIEW-READY** | Crypto theft / legal void from unbound ownership. 9-section Root Language structure. Output: Wallet Loss Evidence Packet. Generic doctrine form. |
+| CASE-010 (NO_PASS) | **REVIEW-READY** | Ransomware coverage denial (False Root via policy-trigger mismatch). 9-section Root Language structure. Output: Coverage Readiness Packet. Generic doctrine form; no specific carrier or insured referenced. |
 | Market-specific cases | **REFERENCE** | Market directories exist (banking, escrow, exchanges, etc.) with pattern descriptions but no populated case data. |
 | Room-specific cases | **REFERENCE** | Room cases exist but contain structural descriptions, not populated transaction data. |
 
@@ -119,6 +130,7 @@ Honest labeling. No overclaims.
 | AI room architecture | **REVIEW-READY** | 7 sovereign agents with roles and constraints documented. Sovereign Wage Protocol described. |
 | Help-wanted items | **REFERENCE** | ZK review request posted. No external contributors yet. |
 | Challenge protocol | **REFERENCE** | Challenge-a-case mechanism described. Not tested with external reviewers. |
+| Case limitations document | **REVIEW-READY** | Reviewer rejection criteria + reconstructed-from-public-reporting flags + per-case weaknesses. Defined in `review/CASE_LIMITATIONS.md`. |
 
 ---
 
