@@ -51,6 +51,7 @@ Honest labeling. No overclaims.
 | Evidence sufficiency model | **REFERENCE** | Described conceptually. No formal definition of what constitutes "sufficient" evidence for each root type. |
 | Pattern library | **REFERENCE** | Contains pattern descriptions. No populated examples with real data. |
 | Root Language guide | **REVIEW-READY** | 12-term vocabulary + 9-section case design pattern + synthesis rule (`FinalExecutionPass = MachineGreen × HumanRedSeal × ProofComplete × ArchiveFinal × CustodySeal`) + forbidden-phrasing list. Defined in `docs/ROOT_LANGUAGE.md`. |
+| Root Language Principle (systemic frame) | **REVIEW-READY** | VYRDON is a Root Language system; the Gate is one compiled control surface, not the system itself. NO ROOT = NO PASS root law; Surface/Core law; eight Code Classes (decision / proof / route / custody / seal / authority / evidence / governance); Route Rule; Window Principle; Invisible House Principle; Code Hash Seal section. Defined in `docs/ROOT_LANGUAGE_PRINCIPLE.md`. |
 
 ### vyrdon-mechanism
 
@@ -62,7 +63,9 @@ Honest labeling. No overclaims.
 | Escrow mechanism | **REFERENCE** | Design documented. Solidity reference implementation exists in vyrdon-rootpass-proof but is not production-ready. |
 | Release/hold/reject flows | **REFERENCE** | Logic described. Not implemented as testable service. |
 | Escalation model | **REFERENCE** | Escalation paths described. No working implementation. |
-| Missing safeguards catalog | **REVIEW-READY** | Inventory of safeguards from CASE-005 / CASE-006 / CASE-007 / CASE-008 / CASE-009 / CASE-010, mapped to enforcement primitives. Defined in `mechanism/MISSING_SAFEGUARDS.md`. Eight classes of safeguard; several primitives marked PLANNED. |
+| Missing safeguards catalog | **REVIEW-READY** | Inventory of safeguards from CASE-005 / CASE-006 / CASE-007 / CASE-008 / CASE-009 / CASE-010, mapped to enforcement primitives. Defined in `mechanism/MISSING_SAFEGUARDS.md`. Eleven classes of safeguard (including Code Hash Seal); several primitives marked PLANNED. |
+| Route Law (surface-layer mechanism) | **REVIEW-READY** | Window Principle, Invisible House Principle, Surface/Core split, Route Rule (5 required proofs). Defined in `mechanism/ROUTE_LAW.md`. Composes with each path-specific mechanism. |
+| Code Hash Seal (build-layer mechanism) | **REVIEW-READY** | Doctrine for binding code artifacts to their build identity via signed manifest + verification-on-load + key custody. Defined in `mechanism/CODE_HASH_SEAL.md`. Compiled verifier is **PLANNED**. Audit weight inherited from Git / Nix / Docker / SRI / Sigstore. |
 
 ### vyrdon-technology
 
