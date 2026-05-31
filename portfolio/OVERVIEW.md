@@ -24,7 +24,7 @@ Eight code classes (per `ROOT_LANGUAGE_PRINCIPLE.md` §2). Each compiles to one 
 
 | Code class | Compiled surface (audit/review form) |
 |---|---|
-| Decision codes | `DecisionLib.sol` (REVIEW-READY, audit needed) + TLA+ spec (AUDIT-READY) + planned TS reference |
+| Decision codes | `DecisionLib.sol` (REVIEW-READY, audit needed) + TLA+ spec (AUDIT-READY) + `decideRootPass.ts` root-only TS reference (REVIEW-READY; 20/20 tests pass) |
 | Proof codes | ZK Verifier (REFERENCE — not operationally complete) + proof schemas |
 | Route codes | `vyrdon-mechanism/mechanism/ROUTE_LAW.md` (REVIEW-READY doctrine) |
 | Custody codes | `vyrdon-mechanism/mechanism/CODE_HASH_SEAL.md` (REVIEW-READY doctrine) + evidence custody primitives |

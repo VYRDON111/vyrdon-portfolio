@@ -78,6 +78,8 @@ Honest labeling. No overclaims.
 | Evidence pipeline | **PLANNED** | Described in architecture docs. No working pipeline. |
 | Engine isolation | **PLANNED** | Requirement documented (separate PID, health endpoint, internal queue). Not implemented. |
 | Case evidence map | **REVIEW-READY** | Maps each populated case to schemas / events / endpoints / custody sources. Defined in `registry/case-evidence-map.md`. Identifies 8 new schema kinds (PLANNED) implied by CASE-007 through CASE-010. |
+| Root-Language-to-artifact map | **REVIEW-READY** | Maps the eight code classes (Decision / Proof / Route / Custody / Seal / Authority / Evidence / Governance) to concrete schemas, events, endpoints, validators, decision engines, and console surfaces. Schema inheritance, validator, and console-surface rules. Defined in `registry/root-language-artifact-map.md`. |
+| `decideRootPass.ts` (root-only sub-decision) | **REVIEW-READY** | TypeScript reference implementation of the Root pillar. Emits PASS / NO_PASS only — HOLD lives at the outer four-pillar composition. 20/20 tests pass on the exhaustive 3 × 5 input matrix + four doctrine-invariant assertions. Reason-code vocabulary (`ProofPathState`, `AnchorState`) is not part of the frozen lexicon. Located at `src/root-language/decideRootPass.ts`. Test infra: TypeScript 5 + Vitest 1.6. CI wired via `.github/workflows/ts.yml`. |
 
 ### vyrdon-cases
 
