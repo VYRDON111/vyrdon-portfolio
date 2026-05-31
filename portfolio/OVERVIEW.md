@@ -89,3 +89,22 @@ A compromise of the door is caught by Route Rule. A compromise of the bricks is 
 6. `vyrdon-portfolio/docs/AUDIT_READINESS.md` — per-artifact maturity
 7. `vyrdon-portfolio/docs/OPERATIONAL_EVIDENCE.md` — operating/documented/simulated/reference/public/private map
 8. `vyrdon-open-review/review/CASE_LIMITATIONS.md` — open critique surface
+
+---
+
+## 11. Public Review Console
+
+VYRDON invites methodology and code review through the public review console.
+
+> VYRDON publishes methodology and reference code for review.
+> This repository exists so reviewers can challenge the method, code, cases, and limits.
+
+- Entry point: [`vyrdon-open-review/`](https://github.com/VYRDON111/vyrdon-open-review)
+- Start here: [`vyrdon-open-review/review/START_HERE.md`](https://github.com/VYRDON111/vyrdon-open-review/blob/initial-build/review/START_HERE.md)
+- Eight review rooms: [`vyrdon-open-review/review/REVIEW_ROOMS.md`](https://github.com/VYRDON111/vyrdon-open-review/blob/initial-build/review/REVIEW_ROOMS.md)
+- Challenge protocol: [`vyrdon-open-review/review/CHALLENGE_PROTOCOL.md`](https://github.com/VYRDON111/vyrdon-open-review/blob/initial-build/review/CHALLENGE_PROTOCOL.md)
+- Honest limits: [`vyrdon-open-review/review/LIMITATIONS.md`](https://github.com/VYRDON111/vyrdon-open-review/blob/initial-build/review/LIMITATIONS.md)
+
+Outcomes use the review vocabulary (`ACCEPTED` / `REJECTED` / `NEEDS_MORE_EVIDENCE` / `SUPERSEDED_BY_UPDATE`). Decision-law verdicts (`PASS` / `HOLD` / `NO_PASS`) are reserved for the doctrine.
+
+No production-readiness claim is made. Reference code is not runtime infrastructure.
