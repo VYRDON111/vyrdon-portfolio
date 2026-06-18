@@ -32,14 +32,14 @@ Honest labeling. No overclaims.
 | TLA+ specification (`rootpass.tla`) | **AUDIT-READY** | Exhaustive model check completed. 486 states, 6 invariants, zero violations. Assumptions documented. Reproducible via TLC. |
 | Model check report | **AUDIT-READY** | Contains execution results, state space analysis, invariant results, limitations, and reproduction instructions. |
 | Assumptions document | **REVIEW-READY** | 5 assumptions documented and open to challenge. No formal proof that assumptions hold in all deployment contexts. |
-| RootPassDecisionLib.sol | **REVIEW-READY** | Logic correctly encodes four-pillar law. No test suite. Not audited. |
-| RootPassVerifier.sol | **REFERENCE** | ZK verification function is a placeholder (`return false`). Structure and interface are sound but core function does nothing. |
-| RootPassEscrow.sol | **REFERENCE** | Escrow lifecycle logic is structurally complete but has known Solidity security patterns to fix (transfer vs call, reentrancy, access control). Depends on placeholder verifier. |
+| RootPassDecisionLib.sol | **REVIEW-READY** | Logic correctly encodes four-pillar law. 162-combination doctrine test suite in CI (`tests/all-combinations.test.ts`). Not audited. |
+| RootPassVerifier.sol | **REFERENCE** | ZK verification function is a placeholder (`return false`). Placeholder behavior pinned by `tests/zk-proof-valid.test.ts` so it cannot silently upgrade. The ZK layer is present as a reference artifact but not operationally complete; production ZK capability remains planned. |
+| RootPassEscrow.sol | **REFERENCE** | Escrow lifecycle logic is structurally complete and exercised by `tests/escrow-enforcement.test.ts` against a MockVerifier (PASS releases, NO_PASS returns, HOLD holds, breaker trips at threshold). Has known Solidity security patterns to fix (transfer vs call, reentrancy, access control, expiration handler). Depends on placeholder verifier. |
 | RootPassTimelock.sol | **REVIEW-READY** | Clean timelock implementation. Not integrated with RootPass decision flow. Single guardian (no multi-sig). |
 | IRootPassVerifier.sol | **AUDIT-READY** | Interface definition. Correctly specifies verifier contract signature. |
-| Circom ZK circuit | **PLANNED** | Described in proof stack documentation. Circuit does not exist yet. |
+| Circom ZK circuit (`zk/rootpass.circom`) | **REFERENCE** | Circuit source, example inputs, example proof, public signals, and reference verifier exist in `zk/`. The ZK layer is present as a reference artifact but not operationally complete; production ZK capability remains planned. |
 | Trusted setup | **PLANNED** | Required for Groth16. No ceremony conducted. |
-| Contract test suite | **PLANNED** | No tests exist for any contract. |
+| Contract test suite | **REVIEW-READY** | Hardhat + ethers v6 + Chai. CI green. Doctrine: 162-combination law, contradiction priority, escrow enforcement flow, ZK placeholder pinning. Does not cover: real Groth16 verification, TLA+ equivalence, dispute/expiry, gas accounting. |
 
 ### vyrdon-methodology
 
@@ -159,7 +159,7 @@ Honest labeling. No overclaims.
 ## Unresolved Blockers
 
 1. **No test suites exist for any contract.** This is the largest gap for audit readiness. Without tests, no auditor will engage.
-2. **ZK circuit does not exist.** The proof stack describes three layers (formal, ZK, enforcement). Layer 1 (formal) is complete. Layer 2 (ZK) is planned but unbuilt. Layer 3 (enforcement contracts) is reference-only.
+2. **ZK layer is present as a reference artifact but not operationally complete; production ZK capability remains planned.** The Circom circuit, example inputs, example proof, public signals, and reference verifier all exist in `vyrdon-rootpass-proof/zk/`, but no trusted setup has been conducted and the on-chain verifier `_verifyZKProof()` returns `false` (placeholder pinned by test). There is no working end-to-end verification path from circuit to on-chain verifier.
 3. **No runtime implementation exists.** All technology architecture is documented but not implemented as running services. The system currently operates through ConsoleLab's UI and manual processes.
 4. **No external review has occurred.** All documentation has been produced internally. No external experts, auditors, or contributors have reviewed any artifact.
 5. **No production deployment.** All contracts are reference implementations on no network. No testnet deployment. No mainnet deployment.

@@ -107,11 +107,11 @@ The runtime is structured as a room-based processing system:
 
 ## Proof Infrastructure
 
-The proof layer proves the methodology using three levels:
+The proof layer proves the methodology using three levels (at different maturity — see `docs/AUDIT_READINESS.md`):
 
-1. **Formal Verification** — TLA+ specification with 22 native logic rules and 5 model-checked invariants
-2. **Zero-Knowledge Proofs** — Circom circuits proving decisions without revealing evidence
-3. **Smart Contract Enforcement** — Solidity contracts enforcing decisions on-chain
+1. **Formal Verification** — TLA+ specification with 22 native logic rules and 5 model-checked invariants (AUDIT-READY)
+2. **Zero-Knowledge Proofs** — Circom circuit intended to prove decisions without revealing evidence. The ZK layer is present as a reference artifact but not operationally complete; production ZK capability remains planned.
+3. **Smart Contract Enforcement** — Solidity contracts enforcing decisions on-chain (REVIEW-READY for DecisionLib + Timelock + IVerifier; REFERENCE for Verifier + Escrow)
 
 The formal specification encodes the fail-closed four-pillar law:
 ```
