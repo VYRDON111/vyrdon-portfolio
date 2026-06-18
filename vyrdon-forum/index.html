@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VYRDON Review Forum — public review, talk, and writing surface for auditing VYRDON Root Language code, cases, and evidence. Truth-safe. MIRAGE test.">
+  <title>Review Forum • VYRDON</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="bg-slate-950 text-slate-200">
+  <!--
+    VYRDON Review Forum.
+    Status: Prototype / build in progress. Under active prelaunch verification.
+    Public review/talk/write surface only. No AI/MCP/private token access.
+    All rights reserved. Truth-safe: no fake engagement, no fake claims.
+  -->
+
+  <header class="border-b border-slate-800 bg-slate-950 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-9 h-9 bg-blue-600 rounded flex items-center justify-center">
+          <span class="text-white text-xl font-bold">V</span>
+        </div>
+        <div>
+          <div class="logo text-2xl font-semibold tracking-tight">VYRDON</div>
+          <div class="text-[10px] text-blue-400 -mt-1">Review Forum • Public Audit</div>
+        </div>
+      </a>
+      <nav class="flex items-center gap-6 text-sm">
+        <a href="../console/index.html" class="nav-link text-slate-300 hover:text-white">Console</a>
+        <a href="../console/codebase-env.html" class="nav-link text-slate-300 hover:text-white">Codebase ENV</a>
+        <a href="index.html" class="nav-link text-blue-400 hover:text-white">Forum</a>
+        <div class="h-4 w-px bg-slate-700"></div>
+        <a href="https://github.com/VYRDON111" target="_blank" class="nav-link text-slate-400 hover:text-white text-xs">GitHub</a>
+        <a href="https://vyrdon.com" target="_blank" class="nav-link text-slate-400 hover:text-white text-xs">vyrdon.com</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <div class="max-w-3xl">
+      <h1 class="text-4xl font-semibold tracking-tight">Review Forum</h1>
+      <p class="mt-3 text-slate-400 text-lg">
+        Public review, talk, and writing surface for VYRDON methodology, VYRDX code, cases, and evidence. Anyone can read; submissions go to VYRDX Team for moderation.
+      </p>
+      <p class="mt-2 text-sm text-amber-400/80">
+        Prototype / build in progress. Under active prelaunch verification. Truth-safe: no fake engagement, no fake claims, no unauthorized access.
+      </p>
+    </div>
+
+    <!-- BOUNDARY -->
+    <div class="mt-8 p-6 bg-slate-900 border border-slate-800 rounded-xl">
+      <p class="text-lg">
+        This is a public review surface.<br>
+        It does not grant AI runtime access, MCP access, private token access, production access, or internal system control.
+      </p>
+    </div>
+
+    <!-- THREADS PREVIEW -->
+    <div class="mt-10">
+      <h2 class="font-semibold mb-4">Threads</h2>
+      <div class="space-y-4">
+        <article class="p-5 bg-slate-900 border border-slate-800 rounded-xl">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div class="text-blue-400 font-medium">Proof-stack audit-readiness</div>
+            <div class="text-xs text-slate-500">Reference thread • No replies yet</div>
+          </div>
+          <p class="mt-2 text-sm text-slate-400">
+            Open discussion of the TLA+ spec (AUDIT-READY), ZK reference artifact (not operationally complete), and Solidity contract status. See <a href="../console/codebase-env.html" class="text-blue-400 hover:underline">Codebase ENV</a> for full status.
+          </p>
+        </article>
+        <article class="p-5 bg-slate-900 border border-slate-800 rounded-xl">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div class="text-blue-400 font-medium">10 daily headaches — case review</div>
+            <div class="text-xs text-slate-500">Reference thread • No replies yet</div>
+          </div>
+          <p class="mt-2 text-sm text-slate-400">
+            Public review of the 10 banking/company headaches with no solution in the current model. Submit evidence, contradictions, or pilot interest.
+          </p>
+        </article>
+        <article class="p-5 bg-slate-900 border border-slate-800 rounded-xl">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div class="text-blue-400 font-medium">Pre-MIRAGE 20 Pilots</div>
+            <div class="text-xs text-slate-500">Reference thread • No replies yet</div>
+          </div>
+          <p class="mt-2 text-sm text-slate-400">
+            Each pilot tests hidden goals. 5 smart questions per pilot. Optional demo. Privacy option. Operation Public Ambassador Cindy.
+          </p>
+        </article>
+      </div>
+      <p class="mt-4 text-xs text-slate-500">
+        Threads are static reference placeholders. Live submission routing requires 3 approvals before deploy.
+      </p>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="mt-10 p-6 bg-slate-900 border border-slate-800 rounded-xl">
+      <h2 class="font-semibold mb-3">Submit a review, idea, or audit note</h2>
+      <p class="text-sm text-slate-400 mb-4">
+        Forms below are inert until backend is live. To submit now, use GitHub Issues or email.
+      </p>
+      <form class="space-y-4" onsubmit="event.preventDefault(); alert('Submission routing is pending 3 approvals. Use GitHub Issues or contact@vyrdon.com for now.');">
+        <div>
+          <label class="text-sm text-slate-300">Type</label>
+          <select class="mt-1 w-full bg-slate-800 border border-slate-700 rounded p-2 text-sm text-slate-200">
+            <option>Audit note</option>
+            <option>Issue / Break report</option>
+            <option>Idea</option>
+            <option>Pilot request</option>
+            <option>Partner / Investor interest</option>
+            <option>Responsible disclosure</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-sm text-slate-300">Email</label>
+          <input type="email" class="mt-1 w-full bg-slate-800 border border-slate-700 rounded p-2 text-sm text-slate-200" placeholder="you@example.com">
+        </div>
+        <div>
+          <label class="text-sm text-slate-300">Message</label>
+          <textarea class="mt-1 w-full bg-slate-800 border border-slate-700 rounded p-2 text-sm text-slate-200" rows="4" placeholder="Your review, idea, or audit note. No unauthorized access attempts."></textarea>
+        </div>
+        <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded text-sm font-medium hover:bg-blue-500 transition">
+          Submit (inert until approved)
+        </button>
+      </form>
+      <div class="mt-4 p-4 bg-slate-900 border border-red-900/40 rounded-xl text-sm">
+        <strong class="text-red-400">Security note:</strong> Security researchers and red-team reviewers may submit responsible disclosure notes. Do not attempt unauthorized access, data exfiltration, credential attacks, denial-of-service, or destructive testing.
+      </div>
+    </div>
+
+    <!-- CONTACT / FOLLOW -->
+    <div class="mt-10 p-6 bg-slate-900 border border-slate-800 rounded-xl">
+      <h2 class="font-semibold mb-3">Contact & Follow</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-2 text-xs">
+        <a href="https://x.com/ContactVyrdon" target="_blank" class="hover:underline">X @ContactVyrdon</a>
+        <a href="https://www.linkedin.com/in/vyrdon" target="_blank" class="hover:underline">LinkedIn</a>
+        <a href="https://vyrdon.hashnode.dev" target="_blank" class="hover:underline">Hashnode</a>
+        <a href="https://github.com/VYRDON111" target="_blank" class="hover:underline">GitHub VYRDON111</a>
+        <a href="../console/index.html" class="hover:underline">Console</a>
+        <a href="https://mirage.test.vyrdon.com" target="_blank" class="hover:underline">MIRAGE Test →</a>
+        <a href="https://github.com/VYRDON111/vyrdon-open-review" target="_blank" class="hover:underline">Open Review</a>
+        <a href="mailto:contact@vyrdon.com" class="hover:underline">Email</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="border-t border-slate-800 bg-slate-950 mt-16">
+    <div class="max-w-6xl mx-auto px-6 py-10 text-sm">
+      <div class="flex flex-col md:flex-row justify-between gap-y-8">
+        <div>
+          <div class="font-semibold text-white">VYRDON Team</div>
+          <div>contact@vyrdon.com</div>
+          <div class="mt-1 text-xs text-slate-500">Proof before claims. Under active prelaunch verification.</div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-2 text-xs">
+          <a href="../console/index.html" class="hover:underline">Console</a>
+          <a href="../console/codebase-env.html" class="hover:underline">Codebase ENV</a>
+          <a href="https://github.com/VYRDON111" target="_blank" class="hover:underline">GitHub VYRDON111</a>
+          <a href="https://vyrdon.com" target="_blank" class="hover:underline">vyrdon.com</a>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-slate-800 text-xs text-slate-500 space-y-1">
+        <div>All rights reserved.</div>
+        <div>Founder: Thaer Saleh Bataineh With gratitude to my mother and father.</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
