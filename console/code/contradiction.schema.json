@@ -1,0 +1,1 @@
+{"$schema":"http://json-schema.org/draft-07/schema#","title":"Contradiction","type":"object","required":["contradiction_id","type","item_a","item_b"],"properties":{"contradiction_id":{"type":"string"},"type":{"type":"string"},"item_a":{"type":"string"},"item_b":{"type":"string"},"description":{"type":"string"}}}

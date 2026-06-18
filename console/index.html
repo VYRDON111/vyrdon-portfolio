@@ -77,8 +77,12 @@ MISSING ROOT = HOLD</div>
       <div class="viewer-code"><pre id="vCode">Loading…</pre></div>
     </div>
 
+    <h2 style="font-size:17px;font-weight:700;margin:28px 0 12px">VYRDON Logic Code</h2>
+    <p style="font-size:12px;color:var(--muted);margin:0 0 12px">All code, tests, and specs. Click to view and review.</p>
+    <div id="codeList" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px"></div>
+
     <div class="review-box">
-      <h3>Review a pilot</h3>
+      <h3>Review a pilot or code</h3>
       <input id="rName" placeholder="Your name (optional)">
       <textarea id="rText" placeholder="Did this pilot obey the root laws? Write your review…"></textarea>
       <button onclick="submitReview()">Submit</button>
@@ -98,35 +102,135 @@ MISSING ROOT = HOLD</div>
 
   <script>
     var PILOTS=[
-      {n:"CASE-001",name:"Marketplace escrow payout",outcome:"PASS",cls:"Decision codes",file:"RootPassDecisionLib.sol",prov:"vyrdon-rootpass-proof · AS STAMP"},
-      {n:"CASE-002",name:"Cross-border remittance",outcome:"HOLD",cls:"Evidence codes",file:"evidence.schema.json",prov:"vyrdon-registry · AS STAMP"},
-      {n:"CASE-003",name:"Exchange deposit withdrawal",outcome:"NO_PASS",cls:"Proof codes",file:"RootPassVerifier.sol",prov:"vyrdon-rootpass-proof · AS STAMP"},
-      {n:"CASE-004",name:"Corporate treasury SWIFT wire",outcome:"PASS",cls:"Decision codes",file:"RootPassDecisionLib.sol",prov:"vyrdon-rootpass-proof · AS STAMP"},
-      {n:"CASE-005",name:"ACH merchant payout R03",outcome:"NO_PASS",cls:"Seal codes",file:"ESCROW_MECHANISM.md",prov:"vyrdon-mechanism · AS STAMP"},
-      {n:"CASE-006",name:"Payment usage vs identity",outcome:"NO_PASS",cls:"Evidence codes",file:"decision.schema.json",prov:"vyrdon-registry · AS STAMP"},
-      {n:"CASE-007",name:"Machine green, no state",outcome:"HOLD",cls:"Governance codes",file:"",prov:"PLANNED"},
-      {n:"CASE-008",name:"MITB session token reuse",outcome:"NO_PASS",cls:"Route codes",file:"ROOTPASS_GATE.md",prov:"vyrdon-mechanism · AS STAMP"},
-      {n:"CASE-009",name:"Wallet owner binding",outcome:"HOLD",cls:"Custody codes",file:"SEALED_LAW.md",prov:"vyrdon-methodology · AS STAMP"},
-      {n:"CASE-010",name:"Carrier portal binding",outcome:"NO_PASS",cls:"Authority codes",file:"",prov:"PLANNED"}
+      {n:"CASE-001",name:"Marketplace escrow payout",outcome:"PASS",cls:"Decision + Seal codes",
+        files:[
+          {f:"RootPassDecisionLib.sol",p:"vyrdon-rootpass-proof · AS STAMP"},
+          {f:"true-root-pass.test.ts",p:"vyrdon-rootpass-proof/tests · AS STAMP"},
+          {f:"ESCROW_MECHANISM.md",p:"vyrdon-mechanism · AS STAMP"},
+          {f:"RELEASE_PATH.md",p:"vyrdon-mechanism · AS STAMP"}
+        ]},
+      {n:"CASE-002",name:"Cross-border remittance",outcome:"HOLD",cls:"Evidence codes",
+        files:[
+          {f:"evidence.schema.json",p:"vyrdon-registry · AS STAMP"},
+          {f:"missing-root-hold.test.ts",p:"vyrdon-rootpass-proof/tests · AS STAMP"},
+          {f:"ROOTPASS_INVARIANT.md",p:"vyrdon-rootpass-proof/formal · AS STAMP"},
+          {f:"SETTLEMENT_PATH.md",p:"vyrdon-mechanism · AS STAMP"}
+        ]},
+      {n:"CASE-003",name:"Exchange deposit withdrawal",outcome:"NO_PASS",cls:"Proof codes",
+        files:[
+          {f:"RootPassVerifier.sol",p:"vyrdon-rootpass-proof · AS STAMP"},
+          {f:"false-root-no-pass.test.ts",p:"vyrdon-rootpass-proof/tests · AS STAMP"},
+          {f:"zk-proof-valid.test.ts",p:"vyrdon-rootpass-proof/tests · AS STAMP"},
+          {f:"RootPassEscrow.sol",p:"vyrdon-rootpass-proof · AS STAMP"},
+          {f:"REFUND_PATH.md",p:"vyrdon-mechanism · AS STAMP"}
+        ]},
+      {n:"CASE-004",name:"Corporate treasury SWIFT wire",outcome:"PASS",cls:"Decision codes",
+        files:[
+          {f:"RootPassDecisionLib.sol",p:"vyrdon-rootpass-proof · AS STAMP"},
+          {f:"all-combinations.test.ts",p:"vyrdon-rootpass-proof/tests · 162 combinations · AS STAMP"},
+          {f:"true-root-pass.test.ts",p:"vyrdon-rootpass-proof/tests · AS STAMP"},
+          {f:"rootpass.tla",p:"vyrdon-rootpass-proof/formal · 486 states · AS STAMP"}
+        ]},
+      {n:"CASE-005",name:"ACH merchant payout R03",outcome:"NO_PASS",cls:"Seal codes",
+        files:[
+          {f:"ESCROW_MECHANISM.md",p:"vyrdon-mechanism · AS STAMP"},
+          {f:"escrow-enforcement.test.ts",p:"vyrdon-rootpass-proof/tests · AS STAMP"},
+          {f:"REFUND_PATH.md",p:"vyrdon-mechanism · AS STAMP"},
+          {f:"false-root-no-pass.test.ts",p:"vyrdon-rootpass-proof/tests · AS STAMP"}
+        ]},
+      {n:"CASE-006",name:"Payment usage vs identity",outcome:"NO_PASS",cls:"Evidence codes",
+        files:[
+          {f:"decision.schema.json",p:"vyrdon-registry · AS STAMP"},
+          {f:"contradiction.schema.json",p:"vyrdon-registry · AS STAMP"},
+          {f:"contradiction-blocks-pass.test.ts",p:"vyrdon-rootpass-proof/tests · AS STAMP"},
+          {f:"evidence.schema.json",p:"vyrdon-registry · AS STAMP"}
+        ]},
+      {n:"CASE-007",name:"Machine green, no state",outcome:"HOLD",cls:"Governance codes",
+        files:[
+          {f:"state-machine.md",p:"vyrdon-rootpass-proof/formal · AS STAMP"},
+          {f:"missing-root-hold.test.ts",p:"vyrdon-rootpass-proof/tests · AS STAMP"},
+          {f:"ROOTPASS_GATE.md",p:"vyrdon-mechanism · AS STAMP"},
+          {f:"assumptions.md",p:"vyrdon-rootpass-proof/formal · AS STAMP"}
+        ]},
+      {n:"CASE-008",name:"MITB session token reuse",outcome:"NO_PASS",cls:"Route codes",
+        files:[
+          {f:"ROOTPASS_GATE.md",p:"vyrdon-mechanism · AS STAMP"},
+          {f:"CHALLENGE_PATH.md",p:"vyrdon-mechanism · AS STAMP"},
+          {f:"contradiction-blocks-pass.test.ts",p:"vyrdon-rootpass-proof/tests · AS STAMP"},
+          {f:"SEALED_LAW.md",p:"vyrdon-methodology · AS STAMP"}
+        ]},
+      {n:"CASE-009",name:"Wallet owner binding",outcome:"HOLD",cls:"Custody codes",
+        files:[
+          {f:"SEALED_LAW.md",p:"vyrdon-methodology · AS STAMP"},
+          {f:"missing-root-hold.test.ts",p:"vyrdon-rootpass-proof/tests · AS STAMP"},
+          {f:"ROOTPASS_INVARIANT.md",p:"vyrdon-rootpass-proof/formal · AS STAMP"},
+          {f:"PAYOUT_PATH.md",p:"vyrdon-mechanism · AS STAMP"}
+        ]},
+      {n:"CASE-010",name:"Carrier portal binding",outcome:"NO_PASS",cls:"Authority codes",
+        files:[
+          {f:"RootPassTimelock.sol",p:"vyrdon-rootpass-proof · AS STAMP"},
+          {f:"TIMELOCK_MECHANISM.md",p:"vyrdon-mechanism · AS STAMP"},
+          {f:"false-root-no-pass.test.ts",p:"vyrdon-rootpass-proof/tests · AS STAMP"},
+          {f:"ROOT_ATTESTATION_PROTOCOL.md",p:"vyrdon-rootpass-proof/formal · AS STAMP"}
+        ]}
     ];
     var g=document.getElementById("grid");
     g.innerHTML=PILOTS.map(function(p,i){
       var oc=p.outcome==="PASS"?"pass":p.outcome==="NO_PASS"?"nopass":"hold";
-      var click=p.file?'onclick="loadFile('+i+')"':'onclick="alert(\'PLANNED — no code yet\')"';
-      return '<div class="card" '+click+
-        '><div class="card-num">'+p.n+'</div>'+
+      return '<div class="card" onclick="openPilot('+i+')">'+
+        '<div class="card-num">'+p.n+'</div>'+
         '<div class="card-name">'+p.name+'</div>'+
         '<div class="card-outcome '+oc+'">'+p.outcome+'</div>'+
-        '<div class="card-class">Tests: '+p.cls+'</div></div>';
+        '<div class="card-class">Tests: '+p.cls+' · '+p.files.length+' files</div></div>';
     }).join("");
 
-    function loadFile(i){
+    function openPilot(i){
       var p=PILOTS[i];
-      document.getElementById("vFile").textContent=p.n+" · "+p.file;
-      document.getElementById("vProv").textContent=p.prov;
+      document.getElementById("vFile").textContent=p.n+" · "+p.name;
+      document.getElementById("vProv").textContent="Select a code file to review";
+      var html=p.files.map(function(f,j){
+        return '<div style="padding:6px 0;cursor:pointer;color:var(--blue)" onclick="loadFile('+i+','+j+')">▸ '+f.f+'</div>';
+      }).join("");
+      document.getElementById("vCode").innerHTML="<pre>"+html+"</pre>";
+      document.getElementById("viewer").classList.add("open");
+    }
+
+    function loadFile(i,j){
+      var p=PILOTS[i];
+      var f=p.files[j];
+      document.getElementById("vFile").textContent=p.n+" · "+f.f;
+      document.getElementById("vProv").textContent=f.p;
+      document.getElementById("vCode").textContent="Loading…";
+      fetch("code/"+f.f).then(function(r){return r.text()}).then(function(t){
+        document.getElementById("vCode").textContent=t;
+      }).catch(function(e){document.getElementById("vCode").textContent="Failed: "+e.message});
+    }
+
+    var CODE_FILES=[
+      "RootPassDecisionLib.sol","RootPassEscrow.sol","RootPassTimelock.sol","RootPassVerifier.sol",
+      "IRootPassVerifier.sol","MockVerifier.sol","TestDecisionLib.sol",
+      "rootpass.tla","FOUR_PILLAR_LAW.md","LANGUAGE_LAW.md","NATIVE_LOGIC_SPEC.md",
+      "ROOTPASS_INVARIANT.md","ROOT_ATTESTATION_PROTOCOL.md","state-machine.md","assumptions.md",
+      "model-check-report.md",
+      "true-root-pass.test.ts","false-root-no-pass.test.ts","missing-root-hold.test.ts",
+      "all-combinations.test.ts","contradiction-blocks-pass.test.ts","escrow-enforcement.test.ts",
+      "zk-proof-valid.test.ts","_helpers.ts",
+      "ROOTPASS_GATE.md","ESCROW_MECHANISM.md","CHALLENGE_PATH.md","RELEASE_PATH.md",
+      "REFUND_PATH.md","SETTLEMENT_PATH.md","PAYOUT_PATH.md","TIMELOCK_MECHANISM.md",
+      "SEALED_LAW.md",
+      "evidence.schema.json","decision.schema.json","case.schema.json","contradiction.schema.json","event.schema.json"
+    ];
+    var cl=document.getElementById("codeList");
+    cl.innerHTML=CODE_FILES.map(function(f){
+      return '<span style="padding:4px 10px;border:1px solid var(--line);border-radius:6px;font-size:12px;cursor:pointer;font-family:ui-monospace,monospace" onclick="loadCode(\''+f+'\')">'+f+'</span>';
+    }).join("");
+
+    function loadCode(f){
+      document.getElementById("vFile").textContent=f;
+      document.getElementById("vProv").textContent="VYRDON logic code · AS STAMP";
       document.getElementById("vCode").textContent="Loading…";
       document.getElementById("viewer").classList.add("open");
-      fetch("code/"+p.file).then(function(r){return r.text()}).then(function(t){
+      fetch("code/"+f).then(function(r){return r.text()}).then(function(t){
         document.getElementById("vCode").textContent=t;
       }).catch(function(e){document.getElementById("vCode").textContent="Failed: "+e.message});
     }
